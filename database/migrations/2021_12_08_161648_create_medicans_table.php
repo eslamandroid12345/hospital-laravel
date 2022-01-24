@@ -19,7 +19,7 @@ class CreateMedicansTable extends Migration
             $table->timestamps();
             $table->softDeletes();
 
-            $table->foreign('hospital_id')->references('id')->on('profile')->onDelete('cascade');
+            $table->foreign('hospital_id')->references('id')->on('hospitals')->onDelete('cascade');
         });
     }
 

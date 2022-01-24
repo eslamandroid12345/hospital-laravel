@@ -81,4 +81,7 @@ final class AdminController extends Controller
 
         return redirect()->route('profile.index')->with('success','admin created successfully');
     }
+
+
+
 }

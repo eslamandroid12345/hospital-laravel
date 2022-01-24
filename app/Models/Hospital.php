@@ -12,13 +12,14 @@ class Hospital extends Model
     use SoftDeletes;
 
 
+
     protected $fillable = ['hospital_name','hospital_address','build_number','image'];
     protected $dates = ['deleted_at'];
 
 
     public function medican(){
 
-        return $this->hasMany(Medican::class,'hospital_id');
+        return $this->hasMany(Medican::class,'hospital_id','id');
     }
 
 

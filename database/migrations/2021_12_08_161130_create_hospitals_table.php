@@ -9,7 +9,7 @@ class CreateHospitalsTable extends Migration
 
     public function up()
     {
-        Schema::create('profile', function (Blueprint $table) {
+        Schema::create('hospitals', function (Blueprint $table) {
             $table->increments('id');
             $table->string('hospital_name',50);
             $table->string('hospital_address',100);
@@ -22,6 +22,6 @@ class CreateHospitalsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('profile');
+        Schema::dropIfExists('hospitals');
     }
 }

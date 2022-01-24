@@ -18,7 +18,7 @@ class Medican extends Model
     //hospital hasMany Medican
     public function hospital(){
 
-        return $this->belongsTo(Hospital::class,'hospital_id');
+        return $this->belongsTo(Hospital::class,'hospital_id','id');
     }
 
 

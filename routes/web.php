@@ -62,7 +62,7 @@ Route::post('admin/register', 'AdminController@adminRegister')->name('admin.regi
 
 //admin dashboard
 Route::get('admin/register/data', 'AdminController@adminRegisterData')->name('admin.register.data')->middleware('auth:admin');//view register admin
-Route::get('admin/login/data', 'AdminController@adminLoginData')->name('admin.login.data');//view login admin
+Route::get('admin/login/data', 'AdminController@adminLoginData')->name('admin.login.data')->middleware('check');//view login admin
 Route::get('data', 'AdminController@getTickes')->name('data')->middleware('auth:admin');//view login dash
 Route::get('soft/admin/{id}', 'AdminController@softDelete')->name('soft.admin')->middleware('auth:admin');//view login dash
 

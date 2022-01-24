@@ -17,7 +17,7 @@ class MedicanController extends Controller
 
         }else{
 
-            $medicans = Medican::whereHas('service')->latest()->paginate(MAX_PAGINATE);
+            $medicans = Medican::latest()->paginate(MAX_PAGINATE);
 
         }
         return view('addHospital.doctor_index',compact('medicans'));

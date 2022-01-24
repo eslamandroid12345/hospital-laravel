@@ -121,6 +121,7 @@ class HospitalController extends Controller
 
 
         if ($image = $request->file('image')) {
+
             $destinationPath = 'image/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);

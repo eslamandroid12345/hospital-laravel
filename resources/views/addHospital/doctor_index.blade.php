@@ -22,6 +22,7 @@
         <tr>
             <th>اسم الدكتور</th>
             <th>هاتف الدكتور</th>
+            <th>مستشفي الدكتور</th>
             <th>عنوان الدكتور</th>
             <th>الراتب</th>
             <th>اخذ اجراء</th>
@@ -36,6 +37,7 @@
             <tr>
                 <td>{{$medican->doctor_name}}</td>
                 <td>{{$medican->doctor_phone}}</td>
+                <td>{{$medican->hospital->hospital_name}}</td>
                 <td>{{$medican->doctor_address}}</td>
                 <td>{{$medican->salary}}</td>
                 <td>
