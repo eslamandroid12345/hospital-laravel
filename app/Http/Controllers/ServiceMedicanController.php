@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 class ServiceMedicanController extends Controller
 {
 
+    //all doctor and services
+
     public function getMedicanAndServices(){
 
         $doctors = Medican::select('id','doctor_name')->get();

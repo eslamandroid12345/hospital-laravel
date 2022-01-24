@@ -89,4 +89,9 @@ Route::group(['prefix'=>'users','middleware'=>'auth:admin'], function (){
 
 
 
+Route::get('bar/{id}', function ($id){
 
+    $hospital = \App\Models\Medican::find($id)->hospital;
+
+    return $hospital;
+});
