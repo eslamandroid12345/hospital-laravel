@@ -40,6 +40,16 @@ class RegisterController extends Controller
             'mobile' => ['required', 'string', 'max:11'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ],[
+
+            'name.required' => 'ادخل اسم المستخدم',
+            'mobile.required' => 'ادخل رقم الهانف',
+            'email.required' => 'برجاء ادخال البريد الالكتروني',
+            'email.email' =>'البريد يجب ان يكون ايميل',
+            'email.unique' => 'هذا الايميل موجود بالفعل برجاء ادخال ايميل اخر',
+            'password.required' => 'كلمه المرور مطلوبه',
+            'password.min' => 'كلمه المرور يجب ان لا تقل عن 8 حروف او ارقام'
+
         ]);
     }
 

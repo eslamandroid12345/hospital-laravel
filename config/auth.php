@@ -45,6 +45,12 @@ return [
             'driver' => 'session',
             'provider' => 'admins',//search in admins table
         ],//admins
+
+
+        'user-api' => [
+            'driver' => 'jwt',
+            'provider' => 'users',
+        ],
     ],
 
     /*

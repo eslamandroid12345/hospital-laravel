@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Request;
 
 class LoginController extends Controller
 {
@@ -29,6 +30,8 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+
+
     //override login with email or mobile
 
     public function username()
@@ -36,9 +39,13 @@ class LoginController extends Controller
 
         $input = request()->input('two');
         $check = filter_var($input,FILTER_VALIDATE_EMAIL) ? 'email' : 'mobile';
-        $request_merge = request()->merge([$check=>$input]);
+        $merge = request()->merge([$check=>$input]);
 
         return $check;
 
     }
+
+
+
+
 }
