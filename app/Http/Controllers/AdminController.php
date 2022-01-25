@@ -55,7 +55,7 @@ final class AdminController extends Controller
 
         if(Auth::guard('admin')->attempt(['email'=>$request->email,'password'=> $request->password])){
 
-            return redirect()->intended('/profile')->with('success','اهلا بك ايها المدير العام');
+            return redirect()->intended('/medicans')->with('success','اهلا بك ايها المدير العام');
         }else{
 
             return back()->withInput($request->only('email'));

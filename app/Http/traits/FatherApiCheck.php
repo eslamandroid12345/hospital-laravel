@@ -40,7 +40,7 @@ trait FatherApiCheck
             'status'=>true,
             'message'=>$message,
             'code'=>$code,
-            $key=>$value,
+             $key=>$value,
 
         ]);
 
