@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-$page = define('MAX_PAGINATE',4);
+//$page = define('MAX_PAGINATE',4);
 
 //ticket route controller
 Route::get('/', 'TicketController@welcome');
