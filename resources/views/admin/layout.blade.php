@@ -23,13 +23,19 @@
 
 </head>
 
+<style>
+    body{
+
+        direction: rtl;
+    }
+</style>
 
  @if(LaravelLocalization::setLocale() == 'en')
 
      <style>
          body{
 
-             direction: rtl;
+             direction: ltr;
          }
      </style>
      @endif

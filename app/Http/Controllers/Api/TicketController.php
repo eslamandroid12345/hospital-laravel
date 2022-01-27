@@ -15,7 +15,6 @@ class TicketController extends Controller
 
 
 
-
     public function index(){
 
         $ticket = TicketResource::collection(Ticket::get());

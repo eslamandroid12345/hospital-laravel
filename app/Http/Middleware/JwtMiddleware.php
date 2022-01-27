@@ -27,7 +27,6 @@ class JwtMiddleware extends BaseMiddleware
 
             } catch (Exception $e) {
 
-
                     return $this->returnMessageError('غير مسموح لك بالدخول','404');
 
             }
