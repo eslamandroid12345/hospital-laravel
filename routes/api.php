@@ -36,7 +36,7 @@ Route::group(['prefix'=>'users','namespace'=>'Api'], function (){
 Route::group(['prefix'=>'admins','namespace'=>'Api'], function (){
 
     Route::post('login',[AdminController::class,'login']);
-    Route::post('logout',[AdminController::class,'logout']);
+    Route::post('logout',[AdminController::class,'logout'])->middleware(['jwt.verified:admin-api']);
 
 
 });
@@ -48,6 +48,7 @@ Route::group(['prefix'=>'tickets','namespace'=>'Api'], function (){
     Route::get('all',[TicketController::class,'index'])->middleware(['jwt.verified:admin-api']);
     Route::post('create',[TicketController::class,'create'])->middleware('jwt.verified:user-api');
     Route::delete('delete/{id}',[TicketController::class,'delete'])->middleware('jwt.verified:user-api');
+    Route::put('update/{id}',[TicketController::class,'update'])->middleware('jwt.verified:user-api');
 
 });
 

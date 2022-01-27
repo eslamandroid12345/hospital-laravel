@@ -114,18 +114,9 @@ class AuthController extends Controller
 
     public function logout(Request $request){
 
-        $token = $request->header('auth-token');
 
-        if($token){
+        auth('user-api')->logout();
+        return $this->returnMessageSuccess('user logout successfully',201);
 
-            JWTAuth::setToken($token)->invalidate();
-
-            return $this->returnMessageSuccess('user logout successfully',201);
-
-        }
-        else{
-
-            return $this->returnMessageError('failed to logout please try again',500);
-        }
     }
 }

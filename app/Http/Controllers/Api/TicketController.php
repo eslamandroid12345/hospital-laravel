@@ -70,13 +70,63 @@ class TicketController extends Controller
             'phone' => $request['phone'],
             'patient_address' => $request['patient_address'],
             'operation' => $request['operation'],
-             'user_id' => $user_id
+             'user_id' => $user_id,
 
         ]));
 
         return $this->returnDataSuccess('Ticket created successfully','201','ticket',$ticket);
 
     }
+
+
+    public function update(Request $request,$id){
+
+        $rules = [
+
+            'phone' => 'required|integer',
+            'patient_address' => 'required',
+            'operation' => 'required',
+
+        ];
+
+        $message = [
+            'phone.required'  => 'رقم الهاتف مطلوب برجاء كتابته',
+            'phone.integer'  => 'رقم الهاتف يجب ان يكون رقم',
+            'patient_address.required' => 'عنوان المريض مطلوب',
+            'operation.required' => 'نوع الكشف او العمليه',
+
+        ];
+
+        $validator = Validator::make($request->all(),$rules,$message);
+
+
+        if($validator->fails()){
+
+            return $this->returnMessageError($validator->errors(),'5000');
+        }
+
+        $ticket = Ticket::find($id);
+
+        if(!$ticket){
+
+            return $this->returnMessageError('ticket not found','404');
+
+        }
+        else{
+
+            $ticket->update([
+
+                'phone' => $request['phone'],
+                'patient_address' => $request['patient_address'],
+                'operation' => $request['operation'],
+
+            ]);
+
+            return $this->returnDataSuccess('تم تعديل بيانات الحجز بتجاح','201','ticket',$ticket);
+
+        }
+
+    }//end method of update
 
     public function delete($id){
 

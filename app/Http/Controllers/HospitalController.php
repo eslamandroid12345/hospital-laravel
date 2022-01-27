@@ -14,11 +14,11 @@ class HospitalController extends Controller
     {
         if($request->has('search')){
 
-            $hospitals = Hospital::where('hospital_name','LIKE', '%' . $request->search)->paginate(MAX_PAGINATE);
+            $hospitals = Hospital::where('hospital_name','LIKE', '%' . $request->search)->paginate(6);
 
         }else{
 
-            $hospitals = Hospital::latest()->paginate(MAX_PAGINATE);
+            $hospitals = Hospital::latest()->paginate(6);
 
         }
         return view('addHospital.hospital_index',compact('hospitals'));
@@ -157,7 +157,7 @@ class HospitalController extends Controller
     public function trashed()
     {
 
-        $hospital = Hospital::onlyTrashed()->latest()->paginate(MAX_PAGINATE);
+        $hospital = Hospital::onlyTrashed()->latest()->paginate(6);
         return view('addHospital.hospital_trashed',compact('hospital'));
     }
 

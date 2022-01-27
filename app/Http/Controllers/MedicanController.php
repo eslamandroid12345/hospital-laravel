@@ -13,11 +13,11 @@ class MedicanController extends Controller
     {
         if($request->has('search')){
 
-            $medicans = Medican::where('doctor_name','LIKE','%' . $request->search)->orwhere('doctor_phone','LIKE','%' . $request->search)->paginate(MAX_PAGINATE);
+            $medicans = Medican::where('doctor_name','LIKE','%' . $request->search)->orwhere('doctor_phone','LIKE','%' . $request->search)->paginate(6);
 
         }else{
 
-            $medicans = Medican::latest()->paginate(MAX_PAGINATE);
+            $medicans = Medican::latest()->paginate(6);
 
         }
         return view('addHospital.doctor_index',compact('medicans'));
@@ -104,7 +104,7 @@ class MedicanController extends Controller
     public function trashed()
     {
 
-        $medican = Medican::onlyTrashed()->latest()->paginate(MAX_PAGINATE);
+        $medican = Medican::onlyTrashed()->latest()->paginate(6);
         return view('addHospital.doctor_trashed',compact('medican'));
     }
 

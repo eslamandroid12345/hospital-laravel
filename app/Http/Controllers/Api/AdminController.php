@@ -7,7 +7,6 @@ use App\Http\traits\FatherApiCheck;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AdminController extends Controller
 {
@@ -61,18 +60,11 @@ class AdminController extends Controller
 
     public function logout(Request $request){
 
-        $token = $request->header('auth-token');
 
-        if($token){
-
-            JWTAuth::setToken($token)->invalidate();
-
+             auth('admin-api')->logout();
             return $this->returnMessageSuccess('admin logout successfully',201);
 
-        }
-        else{
 
-            return $this->returnMessageError('failed to logout please try again',500);
-        }
+
     }
 }

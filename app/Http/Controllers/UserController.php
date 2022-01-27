@@ -11,11 +11,11 @@ class UserController extends Controller
     {
         if($request->has('search')){
 
-            $users = User::where('name','LIKE', '%' . $request->search)->paginate(MAX_PAGINATE);
+            $users = User::where('name','LIKE', '%' . $request->search)->paginate(6);
 
         }else{
 
-            $users = User::latest()->paginate(MAX_PAGINATE);
+            $users = User::latest()->paginate(6);
 
         }
         return view('users.index',compact('users'));

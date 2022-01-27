@@ -14,11 +14,11 @@ final class AdminController extends Controller
 
         if($request->has('search')){
 
-            $tickets = Ticket::where('phone','LIKE','%' . $request->search)->paginate(MAX_PAGINATE);
+            $tickets = Ticket::where('phone','LIKE','%' . $request->search)->paginate(6);
 
          }else{
 
-            $tickets = Ticket::latest()->paginate(MAX_PAGINATE);
+            $tickets = Ticket::latest()->paginate(6);
 
         }
 
