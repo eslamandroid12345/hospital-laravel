@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 
 /*
@@ -14,6 +15,9 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::group(['prefix'=> LaravelLocalization::setLocale(),'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]], function(){
+
 
 
 //ticket route controller
@@ -93,4 +97,6 @@ Route::get('bar/{id}', function ($id){
     $hospital = \App\Models\Medican::find($id)->hospital;
 
     return $hospital;
+});
+
 });

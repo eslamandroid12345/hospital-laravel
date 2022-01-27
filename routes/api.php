@@ -22,10 +22,10 @@ Route::group(['prefix'=>'users','namespace'=>'Api'], function (){
 
     Route::post('login',[AuthController::class,'login']);
     Route::post('register',[AuthController::class,'register']);
-    Route::post('logout',[AuthController::class,'logout']);
+    Route::post('logout',[AuthController::class,'logout'])->middleware(['jwt.verified:user-api']);
 
     //start user data update and get and delete
-    Route::get('all',[UserController::class,'index']);
+    Route::get('all',[UserController::class,'index'])->middleware(['jwt.verified:admin-api']);
     Route::get('show/{id}',[UserController::class,'show']);
     Route::put('update/{id}',[UserController::class,'update']);
     Route::delete('delete/{id}',[UserController::class,'delete']);
