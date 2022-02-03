@@ -56,7 +56,19 @@
             </div>
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+             <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+             <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js"></script>
+             <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+
+         <script>
+             Pusher.logToConsole = true;
+
+             var pusher = new Pusher('c015c0d70ff48c211999', {
+                 cluster: 'mt1'
+             });
+
+         </script>
+            <script src="{{asset('js/notification.js')}}"></script>
 
 </body>
 </html>

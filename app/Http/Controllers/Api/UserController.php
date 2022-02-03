@@ -44,7 +44,7 @@ class UserController extends Controller
     public function update(Request $request,$id){
 
 
-        $rules_update =[
+        $rules =[
 
             'name' => 'required|max:100',
             'mobile' => 'required|integer',
@@ -54,7 +54,7 @@ class UserController extends Controller
         ];
 
 
-        $message_update = [
+        $message = [
 
 
             'name.required' => 'ادخل اسم المستخدم',
@@ -68,7 +68,7 @@ class UserController extends Controller
         ];
 
 
-        $validator = Validator::make($request->all(),$rules_update,$message_update);
+        $validator = Validator::make($request->all(),$rules,$message);
 
         if($validator->fails()){
 

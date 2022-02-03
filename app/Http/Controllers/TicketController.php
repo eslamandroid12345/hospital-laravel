@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Events\NewTicketNotification;
 use App\Models\Ticket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -69,6 +70,18 @@ class TicketController extends Controller
         $request->validate($rules,$message);
 
         $ticket = Ticket::create($request->all());
+
+
+        $data = [
+
+            'phone' => $request->phone,
+            'patient_address' => $request->patient_address,
+            'operation' => $request->operation,
+            'user'   => Auth::user()->name,
+
+        ];
+
+        event(new NewTicketNotification($data));
 
         return redirect()->route('tickets.index')->with('success','patient register ticket successfully');
 

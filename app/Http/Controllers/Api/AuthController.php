@@ -17,7 +17,7 @@ class AuthController extends Controller
 
     public function login(Request $request){
 
-        $rules =[
+        $rules = [
 
             'email' => 'required|exists:users,email|email',
             'password' => 'required'
